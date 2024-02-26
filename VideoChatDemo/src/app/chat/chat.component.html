@@ -1,14 +1,31 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>
-    <p class="video-description">local:</p>
-    <video style="transform: scale(-1, 1);" #local_video [autoplay]="true" [muted]="true"></video>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <p class="video-description">remote:</p>
-    <video #received_video [autoplay]="true"></video>
-  </mat-grid-tile>
-</mat-grid-list>
-<button mat-raised-button color="primary" (click)="startLocalVideo()" [disabled]="localVideoActive">Start Local</button>
-<button mat-raised-button color="primary" (click)="pauseLocalVideo()" [disabled]="!localVideoActive">Stop Local</button>
-<button mat-raised-button color="primary" (click)="call()" [disabled]="inCall || !localVideoActive">Call</button>
-<button mat-raised-button color="primary" (click)="hangUp()" [disabled]="!inCall">HangUp</button>
+<div class="video-container">
+  <div class="local-video">
+    <p class="video-description"><i class="fas fa-user"></i> Local Video :</p>
+    <video #local_video autoplay muted></video>
+  </div>
+  <div class="remote-video">
+    <p class="video-description"><i class="fas fa-users"></i> Remote Video :</p>
+    <video #received_video autoplay></video>
+  </div>
+</div>
+
+
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="startLocalVideo()" [disabled]="localVideoActive">
+    <i class="fas fa-video"></i>
+    Start Local
+  </button>
+  <button mat-raised-button color="primary" (click)="pauseLocalVideo()" [disabled]="!localVideoActive">
+    <i class="fas fa-video-slash"></i>
+    Stop Local
+  </button>
+  <button mat-raised-button color="primary" (click)="call()" [disabled]="inCall || !localVideoActive">
+    <i class="fas fa-phone"></i>
+    Call
+  </button>
+  <button mat-raised-button color="primary" (click)="hangUp()" [disabled]="!inCall">
+    <i class="fas fa-phone-slash"></i>
+    HangUp
+  </button>
+</div>
+

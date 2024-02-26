@@ -1,14 +1,71 @@
-video {
-  width: 100%;
-  background: grey;
+.video-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
-p.video-description {
+.local-video,
+.remote-video {
+  position: relative;
+  flex: 1;
+  margin: 0 10px;
+  background-color: rgba(240, 240, 240, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.video-description {
+  font-weight: bold;
   position: absolute;
-  top: 0px;
+  top: 10px;
   left: 10px;
+  color: rgb(6, 0, 0);
+  font-size: 16px;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
 }
 
 button {
-  margin: 1em;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+mat-icon {
+  margin-right: 5px; /* Adjust margin between icon and text */
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .local-video,
+  .remote-video {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-container button {
+    margin: 10px 0;
+    width: 60%;
+  }
 }
